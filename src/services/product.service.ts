@@ -16,7 +16,7 @@ export class ProductService {
 
   async createProduct(name: string, price: number, categoryId: number): Promise<Product> {
     const category = await this.categoryRepository.findOne({
-      where: { id: 1 },
+      where: { id: categoryId },
     });
 
     const product = new Product();
@@ -29,5 +29,21 @@ export class ProductService {
 
   async findAll(): Promise<Product[]> {
     return this.productRepository.find({ relations: ['category'] });
+  }
+
+  async findProductById(id: number): Promise<Product> {
+    return this.productRepository.findOne({
+      where: { id },
+    });
+  }
+
+  async updateProduct(id: number, product: Partial<Product>): Promise<Product> {
+    await this.productRepository.update(id, product);
+    return this.findProductById(id);
+  }
+
+
+  async deleteProduct(id: number): Promise<void> {
+    await this.productRepository.delete(id);
   }
 }

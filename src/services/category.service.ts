@@ -21,4 +21,20 @@ export class CategoryService {
   async findAll(): Promise<Category[]> {
     return this.categoryRepository.find();
   }
+
+  async findCategoryById(id: number): Promise<Category> {
+    return this.categoryRepository.findOne({
+      where: { id },
+    });
+  }
+
+
+  async updateCategory(id: number, category: Partial<Category>): Promise<Category> {
+    await this.categoryRepository.update(id, category);
+    return this.findCategoryById(id);
+  }
+
+  async deleteCategory(id: number): Promise<void> {
+    await this.categoryRepository.delete(id);
+  }
 }
