@@ -1,0 +1,25 @@
+# NestJS TypeORM PostgreSQL CRUD Example
+
+This is a simple **NestJS** project using **TypeORM** and **PostgreSQL**.
+It demonstrates a **One-to-Many** relationship between `Product` and `Category` entities.
+
+### Project Setup
+
+This project allows you to manage products and categories where:
+- A **Product** belongs to one **Category**.
+- A **Category** can have multiple **Products**.
+
+### Prerequisites
+
+Before you begin, ensure that you have the following installed:
+- **Node.js** (v14 or higher)
+- **npm** (v6 or higher)
+- **PostgreSQL** database server (locally or hosted)
+
+### Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your-username/nestjs-typeorm-postgres.git
+   cd nestjs-typeorm-postgres
