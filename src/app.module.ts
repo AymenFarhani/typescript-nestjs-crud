@@ -7,6 +7,7 @@ import { ProductService } from './services/product.service';
 import { CategoryController } from './controllers/category.controller';
 import { ProductController } from './controllers/product.controller';
 import { ormConfig } from '../config/ormconfig';
+import { ExportExcelService } from './services/export-excel.service';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { ormConfig } from '../config/ormconfig';
     TypeOrmModule.forFeature([Category, Product]),
   ],
   controllers: [CategoryController, ProductController],
-  providers: [CategoryService, ProductService],
+  providers: [CategoryService, ProductService, ExportExcelService],
 })
 export class AppModule {}
