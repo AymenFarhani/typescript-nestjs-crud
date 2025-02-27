@@ -6,19 +6,11 @@ import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
 import { CategoryController } from './controllers/category.controller';
 import { ProductController } from './controllers/product.controller';
+import { ormConfig } from '../config/ormconfig';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'products',
-      entities: [Category, Product],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(ormConfig),
     TypeOrmModule.forFeature([Category, Product]),
   ],
   controllers: [CategoryController, ProductController],
